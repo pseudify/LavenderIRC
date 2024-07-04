@@ -15,17 +15,17 @@ LavenderIRC is a simple IRC client implemented in Python with a GUI built using 
 ### Prerequisites
 Arch
 ```bash
-sudo pacman -S python3 python3-pip python3-venv python3-tkinter
+sudo pacman -S python3 python3-pip python3-venv python3-tk
 ```
 
 Ubuntu
 ```bash
-sudo apt install python3 python3-pip python3-venv python3-tkinter
+sudo apt install python3 python3-pip python3-venv python3-tk
 ```
 
 Fedora
 ```bash
-sudo dnf install python3 python3-pip python3-venv python3-tkinter
+sudo dnf install python3 python3-pip python3-venv python3-tk
 ```
 
 ### Installation Steps

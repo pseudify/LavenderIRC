@@ -15,17 +15,17 @@ LavenderIRC is a simple IRC client implemented in Python with a GUI built using 
 ### Prerequisites
 Arch
 ```bash
-sudo pacman -S python3 python3-pip
+sudo pacman -S python3 python3-pip python3-venv
 ```
 
 Ubuntu
 ```bash
-sudo apt install python3 python3-pip
+sudo apt install python3 python3-pip python3-venv
 ```
 
 Fedora
 ```bash
-sudo dnf install python3 python3-pip
+sudo dnf install python3 python3-pip python3-venv
 ```
 
 ### Installation Steps
@@ -34,7 +34,7 @@ sudo dnf install python3 python3-pip
 
    ```bash
    git clone https://github.com/pseudify/LavenderIRC.git
-   cd lavenderirc
+   cd LavenderIRC
    ```
 
 2. **Set Up Virtual Environment**

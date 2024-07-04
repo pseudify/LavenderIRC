@@ -37,14 +37,7 @@ sudo dnf install python3 python3-pip python3-venv python3-tk
    cd LavenderIRC
    ```
 
-2. **Set Up Virtual Environment**
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Run the Application:**
+2. **Run the Application:**
 
    ```bash
    ./lavenderirc

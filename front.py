@@ -11,7 +11,7 @@ catppuccin = {
     "input_fg": "#bac2de",
     "button_bg": "#181825",
     "button_fg": "#bac2de",
-    "border_color": "#babbf1" 
+    "border_color": "#babbf1"
 }
 
 class LavenderIRC:
@@ -26,29 +26,52 @@ class LavenderIRC:
 
         self.widgets()
 
-        self.is_editing = False 
+        self.is_editing = False
 
     def widgets(self):
+        # Top Frame for logo and server/channel info
+        self.top_frame = tk.Frame(self.root, bg=catppuccin["background"])
+        self.top_frame.pack(side=tk.TOP, fill=tk.X)
 
         # LOGO
         logo_label = tk.Label(
-            self.root,
-            text = "LavenderIRC",
-            font = ("Helvetica", 16, "bold"),
-            bg = catppuccin["background"],
-            fg = catppuccin["foreground"],
+            self.top_frame,
+            text="LavenderIRC",
+            font=("Helvetica", 16, "bold"),
+            bg=catppuccin["background"],
+            fg=catppuccin["foreground"],
         )
-        logo_label.pack(pady = 10, padx = 10, anchor = tk.NW)
+        logo_label.pack(side=tk.LEFT, pady=10, padx=10, anchor=tk.NW)
+
+        # Server Info
+        self.server_label = tk.Label(
+            self.top_frame,
+            text="",
+            font=("Helvetica", 14),
+            bg=catppuccin["background"],
+            fg=catppuccin["foreground"],
+        )
+        self.server_label.pack(side=tk.LEFT, pady=10, padx=10, anchor=tk.NW)
+
+        # Channel Info
+        self.channel_label = tk.Label(
+            self.top_frame,
+            text="",
+            font=("Helvetica", 14),
+            bg=catppuccin["background"],
+            fg=catppuccin["foreground"],
+        )
+        self.channel_label.pack(side=tk.LEFT, pady=10, padx=10, anchor=tk.NW)
 
         self.server_frame = tk.LabelFrame(
             self.connection_frame,
             text="Server:",
             bg=catppuccin["background"],
             fg=catppuccin["foreground"],
-            bd=2,  
-            relief=tk.FLAT,  
-            highlightthickness=0, 
-            highlightbackground=catppuccin["border_color"],  
+            bd=2,
+            relief=tk.FLAT,
+            highlightthickness=0,
+            highlightbackground=catppuccin["border_color"],
         )
         self.server_frame.pack(pady=10, padx=10, side=tk.LEFT, fill=tk.X)
 
@@ -57,10 +80,10 @@ class LavenderIRC:
             text="Port:",
             bg=catppuccin["background"],
             fg=catppuccin["foreground"],
-            bd=2,  
-            relief=tk.FLAT,  
-            highlightthickness=0,  
-            highlightbackground=catppuccin["border_color"],  
+            bd=2,
+            relief=tk.FLAT,
+            highlightthickness=0,
+            highlightbackground=catppuccin["border_color"],
         )
         self.port_frame.pack(pady=10, padx=10, side=tk.LEFT, fill=tk.X)
 
@@ -69,10 +92,10 @@ class LavenderIRC:
             text="Nickname:",
             bg=catppuccin["background"],
             fg=catppuccin["foreground"],
-            bd=2,  
-            relief=tk.FLAT,  
-            highlightthickness=0,  
-            highlightbackground=catppuccin["border_color"],  
+            bd=2,
+            relief=tk.FLAT,
+            highlightthickness=0,
+            highlightbackground=catppuccin["border_color"],
         )
         self.nick_frame.pack(pady=10, padx=10, side=tk.LEFT, fill=tk.X)
 
@@ -81,10 +104,10 @@ class LavenderIRC:
             text="Channel:",
             bg=catppuccin["background"],
             fg=catppuccin["foreground"],
-            bd=2,  
-            relief=tk.FLAT,  
-            highlightthickness=0,  
-            highlightbackground=catppuccin["border_color"],  
+            bd=2,
+            relief=tk.FLAT,
+            highlightthickness=0,
+            highlightbackground=catppuccin["border_color"],
         )
         self.channel_frame.pack(pady=10, padx=10, side=tk.LEFT, fill=tk.X)
 
@@ -94,11 +117,11 @@ class LavenderIRC:
             bg=catppuccin["input_bg"],
             fg=catppuccin["input_fg"],
             insertbackground=catppuccin["input_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
-            highlightbackground=catppuccin["border_color"],  
-            highlightthickness=2,  
-            highlightcolor=catppuccin["border_color"], 
+            highlightbackground=catppuccin["border_color"],
+            highlightthickness=2,
+            highlightcolor=catppuccin["border_color"],
         )
         self.server_entry.pack(pady=5, padx=5, fill=tk.X)
 
@@ -108,11 +131,11 @@ class LavenderIRC:
             bg=catppuccin["input_bg"],
             fg=catppuccin["input_fg"],
             insertbackground=catppuccin["input_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
             highlightthickness=2,
             highlightbackground=catppuccin["border_color"],
-            highlightcolor=catppuccin["border_color"],   
+            highlightcolor=catppuccin["border_color"],
         )
         self.port_entry.pack(pady=5, padx=5, fill=tk.X)
 
@@ -122,11 +145,11 @@ class LavenderIRC:
             bg=catppuccin["input_bg"],
             fg=catppuccin["input_fg"],
             insertbackground=catppuccin["input_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
             highlightthickness=2,
             highlightbackground=catppuccin["border_color"],
-            highlightcolor=catppuccin["border_color"],   
+            highlightcolor=catppuccin["border_color"],
         )
         self.nick_entry.pack(pady=5, padx=5, fill=tk.X)
 
@@ -136,11 +159,11 @@ class LavenderIRC:
             bg=catppuccin["input_bg"],
             fg=catppuccin["input_fg"],
             insertbackground=catppuccin["input_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
             highlightthickness=2,
             highlightbackground=catppuccin["border_color"],
-            highlightcolor=catppuccin["border_color"],   
+            highlightcolor=catppuccin["border_color"],
         )
         self.channel_entry.pack(pady=5, padx=5, fill=tk.X)
 
@@ -151,10 +174,10 @@ class LavenderIRC:
             command=self.establish_connection,
             bg=catppuccin["button_bg"],
             fg=catppuccin["button_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
             highlightcolor=catppuccin["border_color"],
-            highlightbackground=catppuccin["border_color"], 
+            highlightbackground=catppuccin["border_color"],
         )
         self.connect_button.pack(pady=20, side=tk.TOP, fill=tk.NONE, expand=False)
 
@@ -165,9 +188,9 @@ class LavenderIRC:
             command=self.disconnect,
             bg=catppuccin["button_bg"],
             fg=catppuccin["button_fg"],
-            bd=2,  
+            bd=2,
             relief=tk.FLAT,
-            highlightcolor=catppuccin["border_color"], 
+            highlightcolor=catppuccin["border_color"],
         )
         self.disconnect_button.pack_forget()
 
@@ -179,7 +202,7 @@ class LavenderIRC:
             bg=catppuccin["button_bg"],
             fg=catppuccin["button_fg"],
             bd=2,
-            highlightcolor=catppuccin["border_color"],   
+            highlightcolor=catppuccin["border_color"],
             relief=tk.FLAT,
         )
         self.edit_connection_button.pack_forget()
@@ -192,9 +215,9 @@ class LavenderIRC:
             insertbackground=catppuccin["input_fg"],
             bd=0,
             highlightthickness=0,
-            highlightbackground=catppuccin["border_color"],  
+            highlightbackground=catppuccin["border_color"],
             relief=tk.FLAT,
-            state=tk.DISABLED, 
+            state=tk.DISABLED,
             cursor="",
             selectbackground=catppuccin["background"],
         )
@@ -214,7 +237,7 @@ class LavenderIRC:
             highlightbackground=catppuccin["border_color"],
             bd=2,
             highlightthickness=2,
-            highlightcolor=catppuccin["border_color"], 
+            highlightcolor=catppuccin["border_color"],
             relief=tk.FLAT,
             selectbackground=catppuccin["background"],
         )
@@ -236,54 +259,47 @@ class LavenderIRC:
         self.client = IRCClient(server, port, nickname, channel, self.update_text_area)
         self.client.start()
 
+        self.server_label.config(text=f"Server: {server}")
+        self.channel_label.config(text=f"Channel: {channel}")
+
         self.hide_connection_inputs()
 
-        self.disconnect_button.pack(pady=10, side=tk.RIGHT)
-        self.edit_connection_button.pack(pady=10, side=tk.RIGHT)
+        self.disconnect_button.pack(pady=10, side=tk.LEFT, padx=10)
+        self.edit_connection_button.pack(pady=10, side=tk.LEFT)
 
-        self.connect_button.pack_forget()
-        self.root.after(1500, self.clear_chat)
+    def send_message(self, event=None):
+        message = self.entry.get()
+        if message:
+            self.client.send_message(message)
+            self.entry.delete(0, tk.END)
+
+    def update_text_area(self, message):
+        self.text_area.config(state=tk.NORMAL)
+        self.text_area.insert(tk.END, message + '\n')
+        self.text_area.see(tk.END)
+        self.text_area.config(state=tk.DISABLED)
 
     def hide_connection_inputs(self):
         self.connection_frame.pack_forget()
-
-    def show_connection_inputs(self):
-        self.connection_frame.pack(pady=20)
+        self.connect_button.pack_forget()
 
     def toggle_edit_connection(self):
         if self.is_editing:
             self.hide_connection_inputs()
-            self.is_editing = False
         else:
-            self.show_connection_inputs()
-            self.is_editing = True
+            self.connection_frame.pack(pady=20)
+            self.connect_button.pack(pady=20)
+        self.is_editing = not self.is_editing
 
     def disconnect(self):
-        if hasattr(self, 'client') and self.client:
-            self.client.stop()
-            del self.client 
+        self.client.disconnect()
         self.show_connection_inputs()
+
+    def show_connection_inputs(self):
+        self.connection_frame.pack(pady=20)
+        self.connect_button.pack(pady=20)
         self.disconnect_button.pack_forget()
         self.edit_connection_button.pack_forget()
-        self.connect_button.pack(pady=20)
-
-    def send_message(self, event):
-        if hasattr(self, 'client') and self.client:
-            message = self.entry.get()
-            if message.strip():
-                self.client.send_message(message) 
-                self.entry.delete(0, tk.END)
-
-    def update_text_area(self, message):
-        self.text_area.config(state=tk.NORMAL)  
-        self.text_area.insert(tk.END, message + "\n")
-        self.text_area.see(tk.END)  
-        self.text_area.config(state=tk.DISABLED)  
-
-    def clear_chat(self):
-        self.text_area.config(state=tk.NORMAL)
-        self.text_area.delete(1.0, tk.END)
-        self.text_area.config(state=tk.DISABLED)
 
 if __name__ == "__main__":
     root = tk.Tk()
